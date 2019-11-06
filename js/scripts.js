@@ -29,8 +29,6 @@ Ticket.prototype.addAnswer = function() {
     this.price += 10
   }
 
-  return this.price
-  $(".output").text(this.price)
 }
 
 var ticket = new Ticket();
@@ -43,9 +41,11 @@ $(document).ready(function() {
     var inputMovie = parseInt($("input:radio[name=option1]:checked").val());
     var inputAge = parseInt($("input:radio[name=option2]:checked").val());
     var inputTime = parseInt($("input:radio[name=option3]:checked").val());
-    var ticket = new Ticket (inputMovie, inputAge, inputTime);
-    var totalPrice = ticket.addAnswer()
-    console.log(totalPrice);
+    var ticket  = new Ticket (inputMovie, inputAge, inputTime);
     ticket.addAnswer();
+    console.log(ticket.price);
+
+    $("#output").html("Your ticket will cost $" + ticket.price + "! So much money!");
+
   });
 });
